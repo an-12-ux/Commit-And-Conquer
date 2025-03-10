@@ -1,11 +1,13 @@
-import Dashboard from "@/components/dashboard/dashboard"
+import React from 'react';
+import Dashboard from "@/components/dashboard/dashboard";
 
-function page() {
+function Page() {
   return (
     <div>
-      <Dashboard/>
+      <Dashboard />
     </div>
-  )
+  );
 }
 
-export default page
+export default Page;
+
