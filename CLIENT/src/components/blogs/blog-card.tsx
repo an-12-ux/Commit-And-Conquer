@@ -1,25 +1,25 @@
-import Link from "next/link"
-import { Calendar } from "lucide-react"
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
+import Link from "next/link";
+import { Calendar } from "lucide-react";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
 
 interface BlogPost {
-  id: number
-  title: string
-  content: { [key: string]: string }
-  author: string
-  date: string
+  id: number;
+  title: string;
+  content: { [key: string]: string };
+  author: string;
+  date: string;
 }
 
 interface BlogCardProps {
-  blog: BlogPost
+  blog: BlogPost;
 }
 
 export function BlogCard({ blog }: BlogCardProps) {
-  const contentPreview = Object.values(blog.content).slice(0, 1).join(" ")
+  const contentPreview = Object.values(blog.content).slice(0, 1).join(" ");
 
   return (
-    <Link href={`/blogs/${blog.id}`}>
+    <Link href={`/blogs/${blog.id}`} key={blog.id}>
       <Card className="overflow-hidden transition-all hover:shadow-md">
         <CardHeader className="p-4 pb-0">
           <div className="flex items-center justify-between">
@@ -28,7 +28,7 @@ export function BlogCard({ blog }: BlogCardProps) {
               {new Date(blog.date).toLocaleDateString()}
             </div>
           </div>
-          <h3 className="line-clamp-2 mt-2 text-xl font-semibold">{blog.title}</h3>
+ <h3 className="line-clamp-2 mt-2 text-xl font-semibold">{blog.title}</h3>
         </CardHeader>
         <CardContent className="p-4 pt-2">
           <p className="line-clamp-3 text-sm text-muted-foreground">{contentPreview}</p>
@@ -44,6 +44,5 @@ export function BlogCard({ blog }: BlogCardProps) {
         </CardFooter>
       </Card>
     </Link>
-  )
+  );
 }
-
